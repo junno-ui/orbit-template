@@ -1,0 +1,15 @@
+node_modules
+.next
+.nuxt
+.output
+dist
+out
+.env*
+!.env.example
+*.tsbuildinfo
+playwright-report
+test-results
+.DS_Store
+package-lock.json
+next-env.d.ts
+public/fonts/

@@ -1,0 +1,14 @@
+# Third-party notices
+
+- **Original hero reference:** supplied by the requester. Orbit adapts its two-line serif hero, pill navigation and actions, configurable content, and dark design tokens. Original CDN logos and CSS animation class names are not bundled. Verify redistribution rights to the supplied reference before a commercial marketplace release.
+- **Photography:** downloaded from Unsplash image endpoints (see public/images/credits.json). Governed by the [Unsplash License](https://unsplash.com/license), not the Junno UI license. No endorsement or partnership is implied. Do not sell the photographs as standalone assets.
+- **Inter** and **Instrument Serif:** self-hosted using Fontsource packages; SIL Open Font License 1.1. Font license text is included in the installed packages and in public/fonts/licenses after asset preparation. [Inter](https://github.com/rsms/inter), [Instrument Serif](https://github.com/Instrument/instrument-serif).
+- **Lucide:** ISC License. [License](https://lucide.dev/license). Used for interface icons and the abstract Orbit mark.
+- **Motion:** MIT. [Source and license](https://github.com/motiondivision/motion).
+- **React Bits:** ScrollFloat, ScrollReveal, ScrollStack, and ScrollExpand adapted from requester-supplied source. Copyright (c) 2026 David Haz; MIT + Commons Clause. [Full notice](docs/licenses/react-bits.txt), [upstream license](https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md). The license restricts selling, sublicensing, or redistributing the components themselves, including bundles and ports. Do not assume this commercial template's source redistribution is covered; obtain suitable rights before marketplace distribution. Junno UI's license does not override these terms.
+- **GSAP:** dependency version is recorded in package-lock.json; governed by the [GSAP Standard License](https://gsap.com/standard-license/). Preserve the package's source copyright notices. Used for the requested scroll effects and Lenis synchronization.
+- **Lenis:** MIT, copyright (c) 2024 darkroom.engineering. [Source and license](https://github.com/darkroomengineering/lenis). The installed package includes its full license.
+- **shadcn/ui:** MIT, copyright (c) 2023 shadcn. Sources installed using the official CLI and customized for Orbit. The full notice is in [docs/licenses/shadcn-ui.txt](docs/licenses/shadcn-ui.txt). [Source](https://github.com/shadcn-ui/ui).
+- **Radix UI, Tailwind CSS, React, Next.js, class-variance-authority, clsx, and tailwind-merge:** their respective open-source licenses apply. Consult installed package LICENSE files and package-lock.json for the exact dependency inventory.
+
+No real space agencies, customer logos, or customer testimonials are included. All business copy is fictional demonstration content.

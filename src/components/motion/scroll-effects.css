@@ -1,0 +1,254 @@
+/* React Bits adaptations: static, readable server output is the default. */
+.scroll-float {
+  overflow: clip;
+  padding-block: 0.12em;
+  margin-block: -0.12em;
+}
+.scroll-float-text {
+  display: inline;
+}
+.scroll-float-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.scroll-float-char,
+.scroll-reveal-word {
+  display: inline-block;
+}
+.scroll-reveal {
+  transform-origin: left center;
+}
+
+.editorial-intro {
+  padding-block: clamp(80px, 10vw, 150px);
+}
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 12%;
+  align-items: end;
+}
+.intro-grid h2 {
+  font-size: clamp(44px, 5.3vw, 76px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+.intro-copy {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+.intro-copy p {
+  color: var(--text-300);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.intro-copy .text-link {
+  margin-top: 26px;
+}
+.editorial-intro .eyebrow {
+  margin-bottom: 32px;
+}
+
+.scroll-stack {
+  margin-top: 56px;
+}
+.scroll-stack-marker {
+  height: 0;
+}
+.scroll-stack-item {
+  min-width: 0;
+}
+.scroll-stack-item:not(:last-child) {
+  padding-bottom: 28px;
+}
+.scroll-stack-card {
+  transform-origin: top center;
+}
+.scroll-stack .interactive-card {
+  border-radius: 18px;
+}
+.scroll-stack .interactive-card .destination-card {
+  min-height: 540px;
+}
+.scroll-stack .destination-card {
+  background: #0c0e10;
+}
+.scroll-stack .destination-card > img {
+  object-position: center;
+}
+.scroll-stack .destination-content {
+  width: min(430px, calc(100% - 48px));
+  margin: 24px;
+  padding: 30px;
+}
+.scroll-stack .destination-content h3 {
+  font-size: clamp(38px, 4vw, 58px);
+}
+.scroll-stack .destination-description {
+  font-size: 14px;
+  max-width: 330px;
+}
+.scroll-stack .destination-top {
+  padding: 30px;
+  font-size: 10px;
+}
+.scroll-stack .destination-bottom {
+  font-size: 12px;
+}
+
+.scroll-expand {
+  position: relative;
+  margin-block: 40px 100px;
+}
+.scroll-expand-stage {
+  position: relative;
+  min-height: 660px;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 24px;
+  text-align: center;
+}
+.scroll-expand-frame,
+.scroll-expand-frame img,
+.scroll-expand-scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.scroll-expand-frame img {
+  object-fit: cover;
+}
+.scroll-expand-scrim {
+  background: linear-gradient(#05060955, #05060944 40%, #050609cc);
+}
+.scroll-expand-title {
+  position: relative;
+  max-width: 950px;
+  font-size: clamp(52px, 7vw, 104px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.scroll-expand-overlay {
+  position: relative;
+  max-width: 580px;
+  padding: 24px;
+}
+.scroll-expand-overlay:focus-within {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.scroll-expand-overlay p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e3e5e2;
+}
+.scroll-expand-overlay .eyebrow {
+  font-size: 11px;
+  margin-bottom: 20px;
+  color: var(--orbit-accent);
+}
+.scroll-expand-overlay .text-link {
+  margin-top: 24px;
+}
+.scroll-expand-hint {
+  display: none;
+}
+
+@media (min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+  .scroll-stack[data-stack-enabled="true"] {
+    display: block;
+  }
+  [data-stack-enabled="true"] .scroll-stack-item {
+    position: sticky;
+    top: calc(var(--stack-top) + var(--stack-index) * var(--stack-step));
+    padding-bottom: var(--stack-gap);
+  }
+  [data-stack-enabled="true"] .scroll-stack-item:last-child {
+    padding-bottom: 0;
+  }
+  [data-stack-enabled="true"] .interactive-card .destination-card {
+    height: min(580px, calc(100svh - 210px));
+    min-height: 440px;
+  }
+  /* Keyboard focus always exposes a card that another card may have covered. */
+  [data-stack-enabled="true"] .scroll-stack-item:focus-within {
+    z-index: 5;
+  }
+  .scroll-expand[data-expand-enabled="true"] {
+    height: calc(100svh * (1 + var(--expand-travel)));
+  }
+  [data-expand-enabled="true"] .scroll-expand-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 0;
+  }
+  [data-expand-enabled="true"] .scroll-expand-title {
+    position: absolute;
+    inset: 0;
+    max-width: none;
+    padding: 0 18%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  [data-expand-enabled="true"] .scroll-expand-overlay {
+    margin-top: 180px;
+  }
+  [data-expand-enabled="true"] .scroll-expand-hint {
+    display: block;
+    position: absolute;
+    bottom: 36px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: #c3c6c1;
+  }
+}
+@media (max-width: 899px) {
+  .intro-grid {
+    gap: 40px;
+    grid-template-columns: 1fr;
+  }
+  .intro-copy {
+    max-width: 540px;
+  }
+  .scroll-expand {
+    margin-block: 30px 60px;
+  }
+  .scroll-expand-stage {
+    min-height: 580px;
+  }
+  .scroll-stack .interactive-card .destination-card {
+    min-height: 510px;
+  }
+}
+@media (max-width: 639px) {
+  .scroll-stack {
+    margin-top: 32px;
+    gap: 20px;
+  }
+  .scroll-stack .destination-content {
+    margin: 14px;
+    padding: 22px;
+    width: calc(100% - 28px);
+  }
+  .scroll-stack .destination-top {
+    padding: 22px;
+    font-size: 8px;
+  }
+  .scroll-stack .destination-content h3 {
+    font-size: 38px;
+  }
+  .scroll-expand-title {
+    font-size: 52px;
+  }
+  .scroll-expand-overlay {
+    padding: 20px 0;
+  }
+}

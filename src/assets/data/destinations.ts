@@ -1,0 +1,42 @@
+import type { Destination } from "@/types/content";
+export const destinations = {
+  eyebrow: "01 / BEYOND THE FAMILIAR",
+  title: "Where will wonder take you?",
+  description: "Three extraordinary perspectives. One planet you'll never see the same way again.",
+  linkLabel: "Find your journey",
+  items: [
+    {
+      id: "edge",
+      number: "01",
+      name: "The edge of space",
+      category: "A FIRST STEP BEYOND",
+      description: "Watch the blue of our atmosphere meet the infinite black beyond.",
+      image: "/images/features/earth.jpg",
+      alt: "The blue curve of Earth photographed from space",
+      duration: "Half-day experience",
+      altitude: "100 km above it all",
+    },
+    {
+      id: "orbit",
+      number: "02",
+      name: "Around our world",
+      category: "A WHOLE NEW WORLDVIEW",
+      description: "Sixteen sunrises. Unfamiliar continents. A beautiful new sense of home.",
+      image: "/images/features/orbit.jpg",
+      alt: "City lights across North America photographed from space",
+      duration: "3-day concept journey",
+      altitude: "Low Earth orbit",
+    },
+    {
+      id: "moon",
+      number: "03",
+      name: "The lunar horizon",
+      category: "FOR THE TRUE EXPLORER",
+      description: "Follow your curiosity to the quiet, silver landscapes of our nearest neighbor.",
+      image: "/images/features/moon.jpg",
+      alt: "The illuminated surface of the Moon against black space",
+      duration: "Future concept",
+      altitude: "384,400 km from home",
+    },
+  ] satisfies Destination[],
+};
