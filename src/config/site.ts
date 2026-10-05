@@ -3,7 +3,7 @@ export const site = {
   title: "Orbit — A different kind of perspective",
   description:
     "Extraordinary journeys beyond the everyday. Discover a cinematic space-travel concept by Junno UI.",
-  url: "https://example.com",
+  url: "https://orbit-template-kohl.vercel.app",
   email: "hello@example.com",
   publisher: "Junno UI",
   publisherUrl: "https://junno-ui.com/",

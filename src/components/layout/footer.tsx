@@ -1,4 +1,5 @@
 import { ArrowUp, Orbit } from "lucide-react";
+import Link from "next/link";
 import { footer } from "@/assets/data/footer";
 import { site } from "@/config/site";
 export function Footer() {
@@ -7,17 +8,17 @@ export function Footer() {
       <div className="container">
         <div className="footer-top">
           <div>
-            <a href="#top" className="wordmark">
+            <Link href="/" className="wordmark" aria-label="Orbit home">
               <Orbit aria-hidden="true" strokeWidth={1.25} />
               {site.name}
-            </a>
+            </Link>
             <p>{footer.description}</p>
           </div>
           <nav aria-label="Footer navigation">
             {footer.links.map((link) => (
-              <a key={link.href} href={link.href}>
+              <Link key={link.href} href={link.href}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <a href="#top" className="back-top" aria-label={footer.backToTop}>

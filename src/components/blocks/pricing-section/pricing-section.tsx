@@ -1,4 +1,5 @@
 import { ArrowUpRight, Check } from "lucide-react";
+import Link from "next/link";
 import { pricing } from "@/assets/data/pricing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -26,10 +27,10 @@ export function PricingSection() {
               <p className="price">{item.price}</p>
               <p className="price-unit">{item.unit}</p>
               <Button asChild variant={item.featured ? "default" : "secondary"}>
-                <a href="#contact" data-journey={item.name}>
+                <Link href={`/contact?journey=${encodeURIComponent(item.name)}`}>
                   {pricing.actionLabel}
                   <ArrowUpRight aria-hidden="true" size={16} />
-                </a>
+                </Link>
               </Button>
               <ul>
                 {item.features.map((feature) => (

@@ -10,12 +10,32 @@ export default defineConfig({
   },
   projects: [
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
-    { name: "laptop", use: { viewport: { width: 1366, height: 650 } } },
-    { name: "laptop-scaled", use: { viewport: { width: 1280, height: 600 } } },
-    { name: "laptop-narrow", use: { viewport: { width: 1024, height: 560 } } },
-    { name: "laptop-short", use: { viewport: { width: 1440, height: 500 } } },
+    {
+      name: "laptop",
+      testMatch: "**/scroll-scenes.spec.ts",
+      use: { viewport: { width: 1366, height: 650 } },
+    },
+    {
+      name: "laptop-scaled",
+      testMatch: "**/scroll-scenes.spec.ts",
+      use: { viewport: { width: 1280, height: 600 } },
+    },
+    {
+      name: "laptop-narrow",
+      testMatch: "**/scroll-scenes.spec.ts",
+      use: { viewport: { width: 1024, height: 560 } },
+    },
+    {
+      name: "laptop-short",
+      testMatch: "**/scroll-scenes.spec.ts",
+      use: { viewport: { width: 1440, height: 500 } },
+    },
     { name: "mobile", use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" } },
-    { name: "reduced-motion", use: { ...devices["Desktop Chrome"], reducedMotion: "reduce" } },
+    {
+      name: "reduced-motion",
+      testMatch: "**/scroll-scenes.spec.ts",
+      use: { ...devices["Desktop Chrome"], reducedMotion: "reduce" },
+    },
   ],
   webServer: process.env.TEST_BASE_URL
     ? undefined

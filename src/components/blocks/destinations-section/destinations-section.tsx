@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { destinations } from "@/assets/data/destinations";
 import ScrollFloat from "@/components/motion/scroll-float";
 import ScrollStack, { ScrollStackItem } from "@/components/motion/scroll-stack";
@@ -18,18 +19,15 @@ export function DestinationsSection() {
           </ScrollFloat>
           <p className="section-description">{destinations.description}</p>
         </div>
-        <a href="#journeys" className="text-link">
+        <Link href="/destinations" className="text-link">
           {destinations.linkLabel}
           <ArrowUpRight aria-hidden="true" size={18} />
-        </a>
+        </Link>
       </div>
       <ScrollStack itemDistance={100} itemStackDistance={24} baseScale={0.9} itemScale={0.035}>
         {destinations.items.map((item) => (
           <ScrollStackItem key={item.id} itemClassName={`destination-${item.id}`}>
-            <a
-              className="destination-card"
-              href={`#journey-${item.id === "edge" ? "discover" : item.id === "orbit" ? "voyage" : "beyond"}`}
-            >
+            <Link className="destination-card" href={`/destinations/${item.slug}`}>
               <img src={item.image} alt={item.alt} width={700} height={900} loading="lazy" />
               <div className="destination-top">
                 <span>{item.category}</span>
@@ -49,7 +47,7 @@ export function DestinationsSection() {
                   </span>
                 </div>
               </div>
-            </a>
+            </Link>
           </ScrollStackItem>
         ))}
       </ScrollStack>

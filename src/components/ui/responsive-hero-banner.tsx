@@ -2,19 +2,13 @@ import { ArrowDown, ArrowRight, MoveUpRight } from "lucide-react";
 import { Badge } from "./badge";
 import { Button } from "./button";
 import type { hero } from "@/assets/data/hero";
+import { HeroVideo } from "./hero-video";
 export type ResponsiveHeroBannerProps = typeof hero;
 /** Supplied hero adapted to shadcn/ui; navigation lives in the layout. */
 export default function ResponsiveHeroBanner(props: ResponsiveHeroBannerProps) {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <img
-        className="hero-image"
-        src={props.backgroundImageUrl}
-        alt=""
-        width={1920}
-        height={1280}
-        fetchPriority="high"
-      />
+      <HeroVideo src={props.videoUrl} poster={props.backgroundImageUrl} />
       <div className="hero-shade" />
       <div className="hero-content container">
         <div className="hero-badge hero-enter">

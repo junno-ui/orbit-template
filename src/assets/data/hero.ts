@@ -6,6 +6,7 @@ export const hero = {
   description:
     "Leave the familiar behind. Experience the quiet wonder of space, and return with a world of possibility.",
   backgroundImageUrl: "/images/hero/earth.jpg",
+  videoUrl: "/videos/orbit-earth.webm",
   primaryButtonText: "Explore the journeys",
   primaryButtonHref: "#destinations",
   secondaryButtonText: "Discover the experience",

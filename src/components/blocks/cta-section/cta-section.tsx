@@ -12,7 +12,11 @@ import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
 
 const subscribeToHydration = () => () => {};
 
-export function CtaSection() {
+export function CtaSection({
+  initialJourney = pricing.items[0].name,
+}: {
+  initialJourney?: string;
+}) {
   // Prevent the browser's default GET submission before the client handler is ready.
   const hydrated = useSyncExternalStore(
     subscribeToHydration,
@@ -20,7 +24,7 @@ export function CtaSection() {
     () => false,
   );
   const [draft, setDraft] = useState("");
-  const [journey, setJourney] = useState(pricing.items[0].name);
+  const [journey, setJourney] = useState(initialJourney);
   const [ready, setReady] = useState(false);
   const status = useRef<HTMLHeadingElement>(null);
   const name = useRef<HTMLInputElement>(null);

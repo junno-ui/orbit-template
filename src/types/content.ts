@@ -4,6 +4,10 @@ export interface Link {
 }
 export interface Destination {
   id: string;
+  slug: string;
+  journey: string;
+  introduction: string;
+  itinerary: { title: string; description: string }[];
   name: string;
   category: string;
   description: string;

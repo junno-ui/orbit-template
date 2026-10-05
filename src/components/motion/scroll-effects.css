@@ -66,7 +66,7 @@
 .scroll-stack-card {
   position: relative;
   transform-origin: top center;
-  border-radius: 24px;
+  border-radius: var(--radius-card);
   box-shadow: 0 24px 64px #0005;
 }
 .scroll-stack-card::after {
@@ -354,7 +354,7 @@
   }
   .scroll-stack .destination-top {
     padding: 26px;
-    font-size: 8px;
+    font-size: 10px;
   }
   .scroll-stack .destination-content h3 {
     font-size: 44px;

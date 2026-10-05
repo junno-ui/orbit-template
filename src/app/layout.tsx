@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { site } from "@/config/site";
 import "./globals.css";
+import "./pages.css";
 const url = process.env.NEXT_PUBLIC_SITE_URL || site.url;
 export const metadata: Metadata = {
   metadataBase: new URL(url),
