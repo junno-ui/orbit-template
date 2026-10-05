@@ -17,13 +17,14 @@ test("scroll scenes respond to scrolling and restore readable static layouts", a
   const animated = await page.evaluate(
     () =>
       matchMedia(
-        "(min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)",
+        "(min-width: 900px) and (min-height: 500px) and (prefers-reduced-motion: no-preference)",
       ).matches,
   );
 
   if (animated) {
     await expect(expand).toHaveAttribute("data-expand-enabled", "true");
     await expect(stack).toHaveAttribute("data-stack-enabled", "true");
+    await expect(page.locator(".experience-grid")).toHaveAttribute("data-story-enabled", "true");
     await expect
       .poll(() => firstWord.evaluate((el) => Number(getComputedStyle(el).opacity)))
       .toBeLessThan(0.5);
@@ -54,6 +55,18 @@ test("scroll scenes respond to scrolling and restore readable static layouts", a
           ),
       )
       .toBeLessThan(0.95);
+
+    // On short laptop viewports, the pinned card and its action must still fit.
+    const lastCard = page.locator(".destination-card").last();
+    await expect
+      .poll(() => lastCard.evaluate((el) => el.getBoundingClientRect().bottom <= innerHeight))
+      .toBe(true);
+    expect(
+      await lastCard.evaluate((el) => {
+        const action = el.querySelector(".destination-bottom")!;
+        return action.getBoundingClientRect().bottom <= el.getBoundingClientRect().bottom;
+      }),
+    ).toBe(true);
 
     await expand.evaluate((el) => {
       window.scrollTo({ top: el.getBoundingClientRect().top + scrollY, behavior: "instant" });

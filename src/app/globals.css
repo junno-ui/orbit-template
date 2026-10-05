@@ -654,7 +654,7 @@ em {
   margin-bottom: 12px;
 }
 /* One editorial story; the rest of the page keeps its natural document flow. */
-@media (min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 900px) and (min-height: 500px) and (prefers-reduced-motion: no-preference) {
   [data-story-enabled="true"] .experience-visual {
     position: sticky;
     top: 140px;

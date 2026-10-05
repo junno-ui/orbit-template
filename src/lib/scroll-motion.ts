@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export { gsap, ScrollTrigger };
 export const desktopScrollMotion =
-  "(min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)";
+  "(min-width: 900px) and (min-height: 500px) and (prefers-reduced-motion: no-preference)";
 
 /** Fonts settle before measuring. Each component owns and reverts only its own effects. */
 export function setupScrollMotion(root: HTMLElement, setup: () => void | (() => void)) {

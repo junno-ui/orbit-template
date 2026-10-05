@@ -10,7 +10,7 @@ export function ScrollStory({ children }: { children: ReactNode }) {
     const element = root.current;
     if (!element) return;
     const media = window.matchMedia(
-      "(min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)",
+      "(min-width: 900px) and (min-height: 500px) and (prefers-reduced-motion: no-preference)",
     );
     let observer: IntersectionObserver | undefined;
     const sync = () => {
