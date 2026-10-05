@@ -20,18 +20,18 @@
 }
 
 .editorial-intro {
-  padding-block: clamp(80px, 10vw, 150px);
+  padding-block: clamp(80px, 9vw, 130px);
 }
 .intro-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 12%;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 9%;
   align-items: end;
 }
 .intro-grid h2 {
-  font-size: clamp(44px, 5.3vw, 76px);
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  font-size: clamp(52px, 7.4vw, 106px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
 }
 .intro-copy {
   border-top: 1px solid var(--border);
@@ -46,7 +46,9 @@
   margin-top: 26px;
 }
 .editorial-intro .eyebrow {
-  margin-bottom: 32px;
+  margin-bottom: 38px;
+  font-size: 12px;
+  letter-spacing: 0.03em;
 }
 
 .scroll-stack {
@@ -62,38 +64,77 @@
   padding-bottom: 28px;
 }
 .scroll-stack-card {
+  position: relative;
   transform-origin: top center;
+  border-radius: 24px;
+  box-shadow: 0 24px 64px #0005;
 }
-.scroll-stack .interactive-card {
-  border-radius: 18px;
-}
-.scroll-stack .interactive-card .destination-card {
-  min-height: 540px;
+.scroll-stack-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000;
+  opacity: var(--stack-shade, 0);
+  pointer-events: none;
 }
 .scroll-stack .destination-card {
+  min-height: 600px;
+  border-radius: inherit;
   background: #0c0e10;
+}
+.scroll-stack .destination-card::after {
+  background:
+    linear-gradient(180deg, #09090b38, transparent 24%),
+    linear-gradient(90deg, #09090be6, #09090b66 52%, #09090b0a),
+    linear-gradient(0deg, #09090bcc, transparent 65%);
 }
 .scroll-stack .destination-card > img {
   object-position: center;
 }
+.scroll-stack .destination-moon .destination-card > img {
+  object-position: center 38%;
+}
 .scroll-stack .destination-content {
-  width: min(430px, calc(100% - 48px));
-  margin: 24px;
-  padding: 30px;
+  width: min(650px, 100%);
+  margin: 0;
+  padding: clamp(28px, 3.5vw, 48px);
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 .scroll-stack .destination-content h3 {
-  font-size: clamp(38px, 4vw, 58px);
+  font-size: clamp(46px, 5.2vw, 74px);
+  line-height: 1.04;
 }
 .scroll-stack .destination-description {
   font-size: 14px;
-  max-width: 330px;
+  max-width: 380px;
+  color: var(--text-200);
 }
 .scroll-stack .destination-top {
-  padding: 30px;
+  padding: 32px 48px;
   font-size: 10px;
 }
+.scroll-stack .destination-top span:last-child {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: 0;
+}
 .scroll-stack .destination-bottom {
+  max-width: 440px;
   font-size: 12px;
+  border-color: #ffffff38;
+}
+.destination-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
 }
 
 .scroll-expand {
@@ -123,7 +164,7 @@
   object-fit: cover;
 }
 .scroll-expand-scrim {
-  background: linear-gradient(#05060955, #05060944 40%, #050609cc);
+  background: linear-gradient(#05060944, #0506090a 30%, #050609b3 70%, #050609e6);
 }
 .scroll-expand-title {
   position: relative;
@@ -147,8 +188,19 @@
   line-height: 1.8;
   color: #e3e5e2;
 }
+.scroll-expand-overlay h3 {
+  display: none;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(44px, 5.4vw, 78px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  max-width: 14ch;
+}
 .scroll-expand-overlay .eyebrow {
-  font-size: 11px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
   margin-bottom: 20px;
   color: var(--orbit-accent);
 }
@@ -163,6 +215,11 @@
   .scroll-stack[data-stack-enabled="true"] {
     display: block;
   }
+  .scroll-stack[data-stack-enabled="true"]::after {
+    content: "";
+    display: block;
+    height: 22svh;
+  }
   [data-stack-enabled="true"] .scroll-stack-item {
     position: sticky;
     top: calc(var(--stack-top) + var(--stack-index) * var(--stack-step));
@@ -171,8 +228,8 @@
   [data-stack-enabled="true"] .scroll-stack-item:last-child {
     padding-bottom: 0;
   }
-  [data-stack-enabled="true"] .interactive-card .destination-card {
-    height: min(580px, calc(100svh - 210px));
+  .scroll-stack[data-stack-enabled="true"] .destination-card {
+    height: min(660px, calc(100svh - 210px));
     min-height: 440px;
   }
   /* Keyboard focus always exposes a card that another card may have covered. */
@@ -187,6 +244,7 @@
     top: 0;
     height: 100svh;
     min-height: 0;
+    padding: 80px max(48px, calc((100vw - 1200px) / 2));
   }
   [data-expand-enabled="true"] .scroll-expand-title {
     position: absolute;
@@ -199,14 +257,29 @@
     pointer-events: none;
   }
   [data-expand-enabled="true"] .scroll-expand-overlay {
-    margin-top: 180px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: end;
+    gap: 10%;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: auto;
+    padding: 0;
+    text-align: left;
+  }
+  [data-expand-enabled="true"] .scroll-expand-overlay h3 {
+    display: block;
+  }
+  [data-expand-enabled="true"] .cinematic-copy {
+    max-width: 370px;
+    padding-bottom: 4px;
   }
   [data-expand-enabled="true"] .scroll-expand-hint {
     display: block;
     position: absolute;
     bottom: 36px;
-    font-size: 10px;
-    letter-spacing: 0.16em;
+    font-size: 12px;
+    letter-spacing: 0.02em;
     color: #c3c6c1;
   }
 }
@@ -224,7 +297,7 @@
   .scroll-expand-stage {
     min-height: 580px;
   }
-  .scroll-stack .interactive-card .destination-card {
+  .scroll-stack .destination-card {
     min-height: 510px;
   }
 }
@@ -234,16 +307,22 @@
     gap: 20px;
   }
   .scroll-stack .destination-content {
-    margin: 14px;
-    padding: 22px;
-    width: calc(100% - 28px);
+    padding: 26px;
+    width: 100%;
   }
   .scroll-stack .destination-top {
-    padding: 22px;
+    padding: 26px;
     font-size: 8px;
   }
   .scroll-stack .destination-content h3 {
-    font-size: 38px;
+    font-size: 44px;
+  }
+  .scroll-stack .destination-bottom {
+    font-size: 11px;
+    gap: 8px;
+  }
+  .destination-action {
+    gap: 8px;
   }
   .scroll-expand-title {
     font-size: 52px;

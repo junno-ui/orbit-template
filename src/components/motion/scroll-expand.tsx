@@ -76,10 +76,16 @@ export default function ScrollExpand({
           0,
         )
         .fromTo(
+          element.querySelector(".scroll-expand-scrim"),
+          { opacity: 0.35 },
+          { opacity: 1, duration: 1, ease: "none" },
+          0,
+        )
+        .fromTo(
           element.querySelector(".scroll-expand-title"),
           { opacity: 1, y: 0 },
-          { opacity: 0, y: -28, duration: 0.4 },
-          0.3,
+          { opacity: 0, y: -36, duration: 0.35, ease: "power1.inOut" },
+          0.25,
         )
         .fromTo(
           element.querySelector(".scroll-expand-hint"),
@@ -91,8 +97,8 @@ export default function ScrollExpand({
         timeline.fromTo(
           element.querySelector(".scroll-expand-overlay"),
           { opacity: 0, y: 18 },
-          { opacity: 1, y: 0, duration: 0.3 },
-          0.7,
+          { opacity: 1, y: 0, duration: 0.35, ease: "power1.out" },
+          0.65,
         );
       return () => {
         delete element.dataset.expandEnabled;

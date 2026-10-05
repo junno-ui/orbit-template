@@ -57,6 +57,7 @@ export default function ScrollStack({
         if (!next) return;
         gsap.to(item.querySelector(".scroll-stack-card"), {
           scale: Math.min(1, baseScale + index * itemScale),
+          "--stack-shade": 0.18,
           ease: "none",
           scrollTrigger: {
             trigger: next,
