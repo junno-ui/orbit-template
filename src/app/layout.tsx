@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body id="top">
+      <body id="top" suppressHydrationWarning>
         <a className="skip-link" href="#main">
           Skip to content
         </a>
