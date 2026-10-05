@@ -197,6 +197,7 @@
   letter-spacing: -0.035em;
   text-wrap: balance;
   max-width: 14ch;
+  white-space: pre-line;
 }
 .scroll-expand-overlay .eyebrow {
   font-size: 12px;

@@ -9,7 +9,7 @@ export const editorial = {
     image: "/images/features/orbit.jpg",
     alt: "The lights of our shared planet seen from orbit",
     eyebrow: "One planet. Countless perspectives.",
-    heading: "A little distance. A deeper connection.",
+    heading: "A little distance.\nA deeper connection.",
     description:
       "Beyond the everyday, a different sense of scale. A little distance to feel a little closer to everything that matters.",
     link: "Choose your journey",

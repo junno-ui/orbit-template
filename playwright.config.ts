@@ -4,6 +4,7 @@ export default defineConfig({
   fullyParallel: true,
   retries: 0,
   use: {
+    channel: process.env.PLAYWRIGHT_CHANNEL,
     baseURL: process.env.TEST_BASE_URL || "http://127.0.0.1:3100",
     trace: "retain-on-failure",
   },

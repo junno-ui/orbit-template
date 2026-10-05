@@ -10,7 +10,7 @@ A premium cinematic landing-page template by [Junno UI](https://junno-ui.com/). 
 - Instrument Serif + Inter, a dark zinc token system, local photography, and local fonts.
 - Motion-powered one-time section reveals, CSS entrance sequencing, hover feedback, and live reduced-motion support. Content remains visible when animation is unavailable.
 - Lenis wheel and anchor scrolling, native touch behavior, and automatic suspension for reduced motion, hidden tabs, and the mobile Sheet.
-- Frosted navigation, destination lenses, and an enquiry panel; spring-driven card highlights, button sheen, press feedback, and staggered reveals. Reduced transparency switches to solid surfaces.
+- Frosted navigation and enquiry panel; full-image destination cards with layered scroll depth, button sheen, and press feedback. Reduced transparency switches to solid surfaces.
 - Official shadcn/ui Button, Badge, Card, Input, Textarea, Label, Native Select, Accordion, and Sheet, styled for Orbit.
 - Focus-managed mobile navigation with Escape handling, keyboard-operable FAQs, visible focus, labelled fields, and browser validation.
 - Typed content separated from layout, sections, and UI primitives.
@@ -62,6 +62,7 @@ PowerShell: use Copy-Item .env.example .env. If PowerShell blocks npm.ps1, run n
 - npm run test:e2e — desktop, mobile, reduced-motion, keyboard, form, and accessibility checks
 
 Set TEST_BASE_URL to test an already running production server. The default test port is 3100.
+Set PLAYWRIGHT_CHANNEL=chrome to run the browser checks with an installed Google Chrome instead of Playwright's bundled Chromium.
 
 ## Environment variables
 
@@ -89,7 +90,7 @@ The landing page uses four typed adaptations in `src/components/motion`: `Scroll
 
 `src/lib/scroll-motion.ts` registers GSAP/ScrollTrigger and scopes setup and cleanup to each component after fonts load. Lenis is driven by GSAP's ticker; do not enable `autoRaf` or create another Lenis instance inside a section. Effects activate at 900px width and 700px height with no reduced-motion preference. Smaller viewports, reduced motion, and JavaScript-disabled browsing show the full static content. Changing the system preference immediately restores readable untransformed content.
 
-`ScrollFloat` and `ScrollReveal` retain the supplied text animation props, with word-aware line wrapping and a single accessible text representation. Orbit uses restrained easing and disables word blur. `ScrollStack` is a document-scroll adaptation: `stackPosition` is pixels, with native sticky positioning and GSAP scale, and no nested-scroller, rotation, or blur options. `ScrollExpand` supports images on document scroll; it omits the supplied internal-scroller and autoplay-video modes. Its clip-path reveal has a short 0.65-viewport expansion and 0.12-viewport hold. Both have static defaults, scoped cleanup, and no component-owned animation-frame loops.
+`ScrollFloat` and `ScrollReveal` retain the supplied text animation props, with word-aware line wrapping and a single accessible text representation. The oversized editorial heading resolves from a restrained 2px blur as its words brighten. `ScrollStack` is a document-scroll adaptation: `stackPosition` is pixels, with native sticky positioning, GSAP scale, and a subtle shade on receding cards. The destination collection uses a 24px stack step and a short release space after the final card. It has no nested-scroller or rotation options. `ScrollExpand` supports images on document scroll; it omits the supplied internal-scroller and autoplay-video modes. The cinematic section opens from a 52%-wide, 64%-high frame over 0.9 viewport heights, then holds for 0.25 viewport heights while the closing copy appears. All scenes have static defaults, scoped cleanup, and no component-owned animation-frame loops.
 
 React Bits' Commons Clause restricts redistribution of the components themselves. **Resolve the source redistribution rights before selling this template.** See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and the [included license](docs/licenses/react-bits.txt). The Junno UI commercial license does not grant rights to third-party components.
 

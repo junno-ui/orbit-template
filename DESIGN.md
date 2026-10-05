@@ -2,7 +2,9 @@
 
 ## Glass and interaction refinement
 
-Floating navigation, destination information panels, and the enquiry surface use static 10–16px frost, translucent dark fills, bright hairlines, and inset highlights. Decorative card light follows fine pointers using spring-driven transforms. Touch devices retain direct scrolling and static highlights. Buttons have brief press compression and a single hover sheen. No looping refraction or animated backdrop filters.
+Floating navigation and the enquiry surface use static 10–16px frost, translucent dark fills, bright hairlines, and inset highlights. Destination cards use full-image compositions, large serif titles, and a directional scrim to keep the photography prominent. Touch devices retain direct scrolling and static layouts. Buttons have brief press compression and a single hover sheen. No looping refraction or animated backdrop filters.
+
+The scroll sequence has three focal points: a large editorial heading whose words resolve into focus, destination cards that recede into a shallow stack, and an Earth image that opens from a smaller frame to full bleed. Closing copy appears near the bottom of the expanded image. Desktop motion uses the existing shared GSAP/Lenis clock; mobile, short viewports, and reduced-motion preferences get readable static compositions.
 
 Lenis handles wheel and anchor scrolling with a 0.09 lerp; reduced motion, hidden tabs, and Radix modal scroll locks destroy the instance and restore native scrolling. CSS scroll padding reserves 112px for the fixed glass navigation. Reduced transparency and unsupported-backdrop-filter fallbacks use opaque dark surfaces. Inspiration: [React Bits Glass Surface](https://reactbits.dev/components/glass-surface); implementation is original and uses the existing Motion/shadcn stack.
 
